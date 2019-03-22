@@ -3,14 +3,16 @@ import React from 'react';
 
 
 export default function FeatureItems(props) {
-
-      const options = this.props.features[key].map((item, index) => {
-        const selectedClass = item.name === this.state.selected[key].name ? 'feature__selected' : '';
+  console.log('features: ', props.featureList);
+  return Object.keys(props.featureList)
+    .map(key => {
+      const options = props.featureList[key].map((item, index) => {
+        const selectedClass = item.name === props.stateProp.selected[key].name ? 'feature__selected' : '';
         const featureClass = 'feature__option ' + selectedClass;
         return <li key={index} className="feature__item">
           <div className={featureClass}
             
-            onClick={e => this.updateFeature(key, item)}>
+            onClick={e => props.updateFeature(key, item)}>
               { item.name }
               ({ new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD'})
                 .format(item.cost) })
@@ -18,16 +20,16 @@ export default function FeatureItems(props) {
         </li>
       });
 
-      return <div className="feature" key={key}>
+      return (<div className="feature" key={key}>
         <div className="feature__name">{key}</div>
         <ul className="feature__list">
           { options }
         </ul>
-      </div>
-    });   
+      </div>)})
+}   
 
 
-    <section className="main__form">
-            <h3>TECH SPECS AND CUSTOMIZATIONS</h3>
+    // <section className="main__form">
+    //         <h3>TECH SPECS AND CUSTOMIZATIONS</h3>
 
-    </section>
+    // </section>
