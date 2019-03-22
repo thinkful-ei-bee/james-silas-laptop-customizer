@@ -7,7 +7,7 @@ export default function FeatureItems(props) {
   return Object.keys(props.featureList)
     .map(key => {
       const options = props.featureList[key].map((item, index) => {
-        const selectedClass = item.name === props.stateProp.selected[key].name ? 'feature__selected' : '';
+        const selectedClass = item.name === props.selected[key].name ? 'feature__selected' : '';
         const featureClass = 'feature__option ' + selectedClass;
         return <li key={index} className="feature__item">
           <div className={featureClass}
@@ -27,9 +27,3 @@ export default function FeatureItems(props) {
         </ul>
       </div>)})
 }   
-
-
-    // <section className="main__form">
-    //         <h3>TECH SPECS AND CUSTOMIZATIONS</h3>
-
-    // </section>

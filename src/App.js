@@ -44,10 +44,13 @@ class App extends Component {
       <div className="App">  
       <Header />
         <main>
-          <Features featureList={this.props.features} 
-            stateProp={this.state}
+          <section className="main__form">
+            <h3>TECH SPECS AND CUSTOMIZATIONS</h3>
+            <Features featureList={this.props.features} 
+            selected={this.state.selected}
             updateFeature={this.updateFeature}
-          />
+            />
+          </section>
           <Summary selected={this.state.selected} />
         </main>
       </div>
